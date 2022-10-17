@@ -1,0 +1,29 @@
+.header-tag {
+  display: flex;
+  background-color: #2d2a32;
+  border-bottom: 10px solid #ddd92a;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  height: 120px;
+  width: 100vw;
+}
+
+.header-tag .header-nav-tag {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-nav-link-tag {
+  text-decoration: none;
+  color: #fafdf6;
+  font-size: 3rem;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.figure-tag .image-tag {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}

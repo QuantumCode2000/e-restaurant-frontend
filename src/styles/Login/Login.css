@@ -1,0 +1,62 @@
+.form-container-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45%;
+  width: 30%;
+  background-color: #eae151;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.login__field {
+  padding: 10px 0px;
+  position: relative;
+  width: 90%;
+}
+
+.login__submit {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  color: #4c489d;
+  box-shadow: 0px 2px 2px #5c5696;
+  cursor: pointer;
+  transition: 0.2s;
+  justify-content: center;
+}
+.login__input {
+  border: none;
+  border-bottom: 2px solid #2d2a32;
+  background: none;
+  padding: 10px;
+  padding-left: 5px;
+  font-weight: 700;
+  width: 100%;
+  transition: 0.2s;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.5rem;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+.button__text {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.5rem;
+}
