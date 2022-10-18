@@ -1,11 +1,11 @@
-import { Route } from "react-router-dom";
+import { Route, redirect } from "react-router-dom";
 
 import React from "react";
 
 const PrivateRoute = ({ component, ...rest }) => {
   let auth = false;
   return (
-    <Route {...rest}>{auth ? <component /> : <Redirect to="/login" />}</Route>
+    <Route {...rest}>{auth ? <component /> : <redirect to="/login" />}</Route>
   );
 };
 

@@ -6,12 +6,14 @@ import Login from "./Login/index";
 import Prices from "./Prices/index";
 import Dashboard from "./Dashboard/index";
 import PrivateRoute from "./PrivateRoute/index";
+import Productos from "./Productos/index";
 
 export {
   PrivateRoute,
   Home,
   About,
   Register,
+  Productos,
   Functionalities,
   Login,
   Prices,

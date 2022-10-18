@@ -26,6 +26,9 @@ const NavBar = () => {
         <Link className="header-nav-link-tag" to="register">
           Pruebalo
         </Link>
+        <Link className="header-nav-link-tag" to="productos">
+          Productos
+        </Link>
       </nav>
     </header>
   );

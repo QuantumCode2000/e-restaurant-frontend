@@ -12,6 +12,7 @@ import {
   Prices,
   Dashboard,
   PrivateRoute,
+  Productos
 } from "./routes";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/functionalities" element=<Functionalities /> />
             <Route path="/login" element=<Login /> />
             <Route path="/prices" element=<Prices /> />
+            <Route path="/productos" element=<Productos /> />
             {/*<PrivateRoute exact path="/dashboard" element=<Dashboard /> />*/}
           </Routes>
         </MainLayout>
