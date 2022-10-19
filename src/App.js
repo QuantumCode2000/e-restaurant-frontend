@@ -12,8 +12,11 @@ import {
   Prices,
   Dashboard,
   PrivateRoute,
-  Productos
+  Productos,
 } from "./routes";
+
+import Nuevo from "./routes/Productos/Nuevo";
+import Editar from "./routes/Productos/modificar";
 
 function App() {
   return (
@@ -28,6 +31,8 @@ function App() {
             <Route path="/login" element=<Login /> />
             <Route path="/prices" element=<Prices /> />
             <Route path="/productos" element=<Productos /> />
+            <Route path="/productos/nuevo" element= <Nuevo /> />
+            <Route path="/productos/editar/:id" element= <Editar /> />
             {/*<PrivateRoute exact path="/dashboard" element=<Dashboard /> />*/}
           </Routes>
         </MainLayout>
