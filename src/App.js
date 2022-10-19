@@ -1,8 +1,7 @@
 import "./App.css";
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { UserProvider } from "./context/UserContext";
-import { MainLayout } from "./layouts";
+import { MainLayout, SuperLayout } from "./layouts";
 import {
   Home,
   About,
@@ -11,26 +10,41 @@ import {
   Login,
   Prices,
   Dashboard,
-  PrivateRoute,
+  ProtectedRoute,
+  ListRestaurant,
+  ListComensal,
+  ListMensajes,
 } from "./routes";
+import UserContext from "./context/UserContext";
 
 function App() {
+  const { active } = useContext(UserContext);
   return (
-    <UserProvider>
-      <Router>
-        <MainLayout>
-          <Routes>
-            <Route path="/" element=<Home /> />
-            <Route path="/about" element=<About /> />
-            <Route path="/register" element=<Register /> />
-            <Route path="/functionalities" element=<Functionalities /> />
-            <Route path="/login" element=<Login /> />
-            <Route path="/prices" element=<Prices /> />
-            {/*<PrivateRoute exact path="/dashboard" element=<Dashboard /> />*/}
-          </Routes>
-        </MainLayout>
-      </Router>
-    </UserProvider>
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element=<Home /> />
+          <Route path="/about" element=<About /> />
+          <Route path="/register" element=<Register /> />
+          <Route path="/functionalities" element=<Functionalities /> />
+          <Route path="/login" element=<Login /> />
+          <Route path="/prices" element=<Prices /> />
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute user={active}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="superadmin" element=<SuperLayout />>
+            <Route path="restaurantes" element=<ListRestaurant /> />
+            <Route path="comensales" element=<ListComensal /> />
+            <Route path="mensajes" element=<ListMensajes /> />
+          </Route>
+        </Routes>
+      </MainLayout>
+    </Router>
   );
 }
 

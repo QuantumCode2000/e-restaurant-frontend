@@ -5,15 +5,21 @@ import Functionalities from "./Functionalities/index";
 import Login from "./Login/index";
 import Prices from "./Prices/index";
 import Dashboard from "./Dashboard/index";
-import PrivateRoute from "./PrivateRoute/index";
+import ProtectedRoute from "./ProtectedRoute/index";
+import ListRestaurant from "./ListRestaurant";
+import ListComensal from "./ListComensal";
+import ListMensajes from "./ListMensajes";
 
 export {
-  PrivateRoute,
+  ProtectedRoute,
   Home,
   About,
   Register,
   Functionalities,
   Login,
+  ListMensajes,
   Prices,
+  ListRestaurant,
   Dashboard,
+  ListComensal,
 };

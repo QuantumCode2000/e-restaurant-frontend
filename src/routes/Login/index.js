@@ -22,7 +22,6 @@ const Login = () => {
     event.preventDefault();
     let inListUser = list.some(
       (item) => item.email === email && item.password === password,
-
     );
     console.log("esta en inListUser", inListUser);
 

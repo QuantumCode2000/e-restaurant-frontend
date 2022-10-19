@@ -1,2 +1,3 @@
 import MainLayout from "./MainLayout/index";
-export { MainLayout };
+import SuperLayout from "./SuperLayout";
+export { MainLayout, SuperLayout };

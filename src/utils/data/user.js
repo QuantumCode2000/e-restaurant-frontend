@@ -1,12 +1,10 @@
-import clients from "./clients.js";
-
 const users = [
   {
     id: 1,
     name: "Alvaro Chambi",
     email: "chambi@reva.com",
     restaurantName: "RESTAURANT ",
-    nivel: 1,
+    nivel: "ADMIN",
     password: "123456",
   },
   {
@@ -14,7 +12,7 @@ const users = [
     name: "Catena Malbee",
     email: "malbee@reva.com",
     restaurantName: "RESTAURANT",
-    nivel: 1,
+    nivel: "EMPLOYEE",
     password: "123456",
   },
   {
@@ -22,7 +20,7 @@ const users = [
     name: "Michelle Vargas",
     email: "vargas@reva.com",
     restaurantName: "RESTAURANT",
-    nivel: 1,
+    nivel: "COMENSAL",
     password: "123456",
   },
   {
@@ -30,15 +28,7 @@ const users = [
     name: "Gabriela Blanco",
     email: "blanco@reva.com",
     restaurantName: "RESTAURANT",
-    nivel: 1,
-    password: "123456",
-  },
-  {
-    id: 5,
-    name: "Irish Guinness",
-    email: "guinness@reva.com",
-    restaurantName: "RESTAURANT",
-    nivel: 1,
+    nivel: "SUPERADMIN",
     password: "123456",
   },
 ];

@@ -1,0 +1,19 @@
+.sidebar-content {
+  display: flex;
+  justify-content: first baseline;
+  flex-direction: column;
+  width: 100%;
+  background-color: #2d2a32;
+  height: calc(100vh - 120px);
+}
+
+.sidebar-content a {
+  width: 100%;
+  height: 50px;
+  font-size: 40px;
+  border-bottom: 10px solid #ddd92a;
+  padding-bottom: 50px;
+  font-family: "Lexend Deca", sans-serif;
+  text-decoration: none;
+  color: #fafdf6;
+}

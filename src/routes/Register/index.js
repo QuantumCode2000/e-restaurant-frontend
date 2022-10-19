@@ -48,7 +48,6 @@ const Register = () => {
 
         <div className="login__field">
           <input type="name" className="login__input" placeholder="Nombre" />
-        
         </div>
 
         <div className="login__field">
