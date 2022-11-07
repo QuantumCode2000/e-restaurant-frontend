@@ -2,12 +2,15 @@ import React from "react";
 import "../../styles/Login/Login.css";
 import { useState, useContext } from "react";
 import UserContext from "../../context/UserContext";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
-  const [userState, setUserState] = useState(true);
+  const navigate = useNavigate();
+  // const [userState, setUserState] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { list, handleActive, handleListUser } = useContext(UserContext);
+  const { list, handleActive } = useContext(UserContext);
+  // const { list, handleActive, handleListUser } = useContext(UserContext);
 
   const handleEmail = ({ value }) => {
     setEmail(value);
@@ -23,6 +26,8 @@ const Login = () => {
     let inListUser = list.some(
       (item) => item.email === email && item.password === password,
     );
+    navigate("/superadmin");
+
     console.log("esta en inListUser", inListUser);
 
     if (inListUser) {
@@ -63,6 +68,7 @@ const Login = () => {
           <span className="button__text">Ingresar</span>
         </button>
       </form>
+      <Link to="/registeruser">Registrarse</Link>
     </main>
   );
 };

@@ -9,8 +9,11 @@ import ProtectedRoute from "./ProtectedRoute/index";
 import ListRestaurant from "./ListRestaurant";
 import ListComensal from "./ListComensal";
 import ListMensajes from "./ListMensajes";
+import SuperHome from "./SuperHome/";
+import RegisterUser from "./RegisterUser";
 
 export {
+  RegisterUser,
   ProtectedRoute,
   Home,
   About,
@@ -22,4 +25,5 @@ export {
   ListRestaurant,
   Dashboard,
   ListComensal,
+  SuperHome,
 };

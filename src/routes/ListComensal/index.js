@@ -1,12 +1,15 @@
 import React from "react";
 import { CardComensales } from "../../components";
 import { user } from "../../utils";
+import UserContext from "../../context/UserContext";
+import { useContext } from "react";
 import "../../styles/ListRestaurant/ListRestaurant.css";
 const ListComensal = () => {
+  let { list } = useContext(UserContext);
   return (
     <React.Fragment>
       <div>
-        {user.users.map((item) => (
+        {list.map((item) => (
           <CardComensales
             name={item.name}
             email={item.email}

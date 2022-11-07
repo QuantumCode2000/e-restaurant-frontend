@@ -7,7 +7,9 @@ import exitSesion from "../../assets/icons/exit.png";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 const NavBar = () => {
-  const { active, handleActive } = useContext(UserContext);
+  const { handleActive } = useContext(UserContext);
+  let { active } = useContext(UserContext);
+
   return (
     <header className="header-tag">
       <nav className="header-nav-tag">
@@ -28,16 +30,18 @@ const NavBar = () => {
             <Link className="header-nav-link-tag" to="about">
               Nosotros
             </Link>
-            <Link className="header-nav-link-tag" to="login">
-              Iniciar Sesion
-            </Link>
-            <Link className="header-nav-link-tag" to="register">
-              Pruebalo
-            </Link>
+            {
+              //   <Link className="header-nav-link-tag" to="login">
+              //   Iniciar Sesion
+              // </Link>
+              // <Link className="header-nav-link-tag" to="register">
+              //   Pruebalo
+              // </Link>
+            }
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Link className="header-nav-link-tag" to="dashboard">
+            <Link className="header-nav-link-tag" to="superadmin">
               Dashboard
             </Link>
             <Link

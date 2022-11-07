@@ -5,10 +5,11 @@ const UserProvider = ({ children }) => {
   const [active, setActive] = useState(false);
   const [nivel, setNivel] = useState(0);
   const listUser = user.users;
+  localStorage.setItem("listUser", JSON.stringify(listUser));
   console.log(listUser);
   const [list, setList] = useState(listUser);
   console.log("users", list);
-  const handleActive = (activo, nivelU) => {
+  const handleActive = (activo, nivelU) => {  
     setActive(activo);
     setNivel(nivelU);
   };

@@ -13,19 +13,23 @@ import {
   ProtectedRoute,
   ListRestaurant,
   ListComensal,
+  SuperHome,
   ListMensajes,
+  RegisterUser
 } from "./routes";
 import UserContext from "./context/UserContext";
 
 function App() {
-  const { active } = useContext(UserContext);
+  let { active } = useContext(UserContext);
   return (
     <Router>
       <MainLayout>
         <Routes>
-          <Route path="/" element=<Home /> />
+          <Route path="/" element={<SuperHome />} />
+          <Route path="/home" element=<Home /> />
           <Route path="/about" element=<About /> />
           <Route path="/register" element=<Register /> />
+          <Route path="/registeruser" element=<RegisterUser /> />
           <Route path="/functionalities" element=<Functionalities /> />
           <Route path="/login" element=<Login /> />
           <Route path="/prices" element=<Prices /> />
