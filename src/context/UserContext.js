@@ -1,33 +1,49 @@
-import { user } from "../utils";
 import { createContext, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import firebaseApp from "../config/credentials";
 const UserContext = createContext();
+const auth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
+
 const UserProvider = ({ children }) => {
-  const [active, setActive] = useState(false);
-  const [nivel, setNivel] = useState(0);
-  const listUser = user.users;
-  localStorage.setItem("listUser", JSON.stringify(listUser));
-  console.log(listUser);
-  const [list, setList] = useState(listUser);
-  console.log("users", list);
-  const handleActive = (activo, nivelU) => {  
-    setActive(activo);
-    setNivel(nivelU);
-  };
+	const [user, setUser] = useState(null);
+	const [active, setActive] = useState(false);
 
-  const handleListUser = (newUser) => {
-    setList([...list, { ...newUser }]);
-  };
+	const getData = async (uid) => {
+		const docRef = doc(firestore, `users/${uid}`);
+		const docCrypt = await getDoc(docRef);
+		const docFinal = docCrypt.data();
+		return docFinal;
+	};
+	const setUserWithFirebaseStateData = async (user) => {
+		getData(user.uid).then((data) => {
+			const userData = {
+				uid: user.uid,
+				email: user.email,
+				rol: data.rol,
+				name: data.name,
+			};
+			setUser(userData);
+		});
+	};
+	onAuthStateChanged(auth, (usuarioFirebase) => {
+		if (usuarioFirebase) {
+			setActive(true);
+			if (!user) {
+				setUserWithFirebaseStateData(usuarioFirebase);
+			}
+		} else {
+			setUser(null);
+		}
+	});
 
-  console.log("active context", active);
-  const data = {
-    list,
-    handleActive,
-    active,
-    nivel,
-    handleListUser,
-  };
+	const data = {
+		active,
+		user,
+	};
 
-  return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
+	return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 };
 
 export default UserContext;

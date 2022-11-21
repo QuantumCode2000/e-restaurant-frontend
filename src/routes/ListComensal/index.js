@@ -9,14 +9,14 @@ const ListComensal = () => {
   return (
     <React.Fragment>
       <div>
-        {list.map((item) => (
+        {list.map((item) => item.nivel === 2 ? (
           <CardComensales
             name={item.name}
             email={item.email}
             nivel={item.nivel}
             key={item.id}
           />
-        ))}
+        ): null)}
       </div>
     </React.Fragment>
   );

@@ -1,29 +1,54 @@
 .header-tag {
-  display: flex;
-  background-color: #2d2a32;
-  border-bottom: 10px solid #ddd92a;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  height: 120px;
-  width: 100vw;
+	display: grid;
+	background-color: #201c2a;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	height: 120px;
+	width: 100vw;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+}
+
+.first-space {
+	grid-column: 1;
+	padding-left: 2rem;
+}
+.center-space {
+	grid-column: 2 / 6;
+	justify-content: space-evenly;
+}
+.ultimate-space {
+	grid-column: 6;
+	justify-content: flex-end;
+	padding-right: 2rem;
+	/* grid-row: 1 / 2; */
 }
 
 .header-tag .header-nav-tag {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
 }
 
 .header-nav-link-tag {
-  text-decoration: none;
-  color: #fafdf6;
-  font-size: 3rem;
-  font-family: "Lexend Deca", sans-serif;
+	text-decoration: none;
+	color: #fafdf6;
+	font-size: 3rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	display: flex;
 }
 
 .figure-tag .image-tag {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
+	width: 4rem;
+	height: 4rem;
+	object-fit: cover;
+}
+
+.header-nav-tag .header-nav-link-tag .foodie-logo {
+	color: #fafdf6;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 900;
+	font-size: 4rem;
 }
