@@ -5,8 +5,9 @@ import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 
 const SideBar = () => {
-	const { nivel } = useContext(UserContext);
-	return nivel === 1 ? (
+	const { user } = useContext(UserContext);
+
+	return user?.rol === "administrador restaurante" ? (
 		<div className="sidebar-content">
 			<Link to="/superadmin/restaurantes" className="sidebar-option">
 				Restaurantes

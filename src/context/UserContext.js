@@ -24,6 +24,7 @@ const UserProvider = ({ children }) => {
 				rol: data.rol,
 				name: data.name,
 			};
+			console.log("userData", userData);
 			setUser(userData);
 		});
 	};
@@ -35,6 +36,7 @@ const UserProvider = ({ children }) => {
 			}
 		} else {
 			setUser(null);
+			setActive(false);
 		}
 	});
 
