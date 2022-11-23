@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import firebaseApp from "../config/credentials";
@@ -9,6 +9,9 @@ const firestore = getFirestore(firebaseApp);
 const UserProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [active, setActive] = useState(false);
+	useEffect(() => {
+		setActive(active);
+	}, [active]);
 
 	const getData = async (uid) => {
 		const docRef = doc(firestore, `users/${uid}`);

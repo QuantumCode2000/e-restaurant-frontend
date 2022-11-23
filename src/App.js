@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MainLayout, SuperLayout } from "./layouts";
 import {
@@ -20,10 +20,11 @@ import {
 import Felicitaciones from "./pages/Felicitaciones";
 import ReservasComensal from "./components/ReservasComensal/ReservasComensal";
 import UserContext from "./context/UserContext";
-
+import { useEffect } from "react";
 
 function App() {
-	let { active } = useContext(UserContext);
+	const { active } = useContext(UserContext);
+
 	return (
 		<Router>
 			<MainLayout>
@@ -36,10 +37,11 @@ function App() {
 					<Route path="/functionalities" element=<Functionalities /> />
 					<Route path="/login" element=<Login /> />
 					<Route path="/prices" element=<Prices /> />
-					<Route path="felicidades" element=<Felicitaciones /> />
-					<Route path="reservas" element=<ReservasComensal /> />
+					<Route path="/felicidades" element=<Felicitaciones /> />
+					<Route path="/reservas" element=<ReservasComensal /> />
+					{/* <Route path="/dashboard" element=<Dashboard /> /> */}
 					<Route
-						path="dashboard"
+						path="/dashboard"
 						element={
 							<ProtectedRoute user={active}>
 								<Dashboard />

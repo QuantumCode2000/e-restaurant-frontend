@@ -1,85 +1,97 @@
 import React from "react";
 import "../../styles/Login/Login.css";
-import { useState, useContext } from "react";
-import UserContext from "../../context/UserContext";
 import "../../styles/Register/Register.css";
+import firebaseApp from "../../config/credentials";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
+const auth = getAuth(firebaseApp);
 
 const Register = () => {
-  const [userState, setUserState] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { list, handleActive, handleListUser } = useContext(UserContext);
-  const [nuevoUsuario, setNuevoUsuario] = useState({});
+	const firestore = getFirestore(firebaseApp);
+	const registerUser = async (email, password, rol, name, nameRes) => {
+		let dateReg = new Date();
+		dateReg = dateReg.getDate();
+		console.log(dateReg);
+		const infUser = await createUserWithEmailAndPassword(
+			auth,
+			email,
+			password,
+		).then((usuarioFirebase) => {
+			return usuarioFirebase;
+		});
+		// console.log("infUser", infUser.user.uid);
+		const docRef = doc(firestore, `users/${infUser.user.uid}`);
+		setDoc(docRef, {
+			email: email,
+			rol: rol,
+			password: password,
+			name: name,
+		});
+		const docRefRestaurant = doc(firestore, `restaurants/${infUser.user.uid}`);
+		setDoc(docRefRestaurant, {
+			name: nameRes,
+			owner: infUser.user.uid,
+			dateReg: dateReg,
+		});
+	};
+	const submitHandler = (event) => {
+		event.preventDefault();
+		const email = event.target.email.value;
+		const password = event.target.password.value;
+		const rol = "administrador restaurante";
+		const name = event.target.name.value;
+		const nameRes = event.target.nameRestaurant.value;
 
-  const handleNewName = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, nombre: value });
-  };
-  const handleNewRestaurant = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, apellido: value });
-  };
-  const handleNewUser = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, usuario: value });
-  };
-  const handleNewPass = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, password: value, nivel: 0 });
-  };
-  const handleNewEmail = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, email: value });
-  };
-  const handleNewAdd = ({ value }) => {
-    setNuevoUsuario({ ...nuevoUsuario, direccion: value });
-  };
+		registerUser(email, password, rol, name, nameRes);
+	};
+	return (
+		<main className="main-container">
+			<form className="form-container-tag-register" onSubmit={submitHandler}>
+				<div className="login__field">
+					<input
+						type="email"
+						className="login__input"
+						placeholder="Correo Electronico"
+						id="email"
+					/>
+				</div>
 
-  return (
-    <main className="main-container">
-      <form
-        className="form-container-tag-register"
-        action="action_page.php"
-        method="post"
-      >
-        <div className="login__field">
-          <input
-            type="email"
-            className="login__input"
-            placeholder="Correo Electronico"
-            onChange={({ target }) => handleNewEmail(target)}
-          />
-        </div>
+				<div className="login__field">
+					<input
+						id="name"
+						type="name"
+						className="login__input"
+						placeholder="Nombre"
+					/>
+				</div>
+				<div className="login__field">
+					<input
+						id="nameRestaurant"
+						type="name"
+						className="login__input"
+						placeholder="Nombre de Restaurante"
+					/>
+				</div>
 
-        <div className="login__field">
-          <input type="name" className="login__input" placeholder="Nombre" />
-        </div>
+				<div className="login__field">
+					<input
+						id="password"
+						type="password"
+						className="login__input"
+						placeholder="Contraseña"
+					/>
+				</div>
 
-        <div className="login__field">
-          <input
-            type="text"
-            className="login__input"
-            placeholder="Nombre del Restaurante"
-          />
-        </div>
-
-        <div className="login__field">
-          <input
-            type="password"
-            className="login__input"
-            placeholder="Contraseña"
-          />
-        </div>
-
-        <div className="login__field">
-          <input
-            type="password"
-            className="login__input"
-            placeholder="Repite Contraseña"
-          />
-        </div>
-
-        <button className="button login__submit">
-          <span className="button__text">Registrar</span>
-        </button>
-      </form>
-    </main>
-  );
+				<input
+					className="button login__submit"
+					type="submit"
+					value="Registrar"
+				/>
+			</form>
+			<Link to="/login">Iniciar Sesion</Link>
+		</main>
+	);
 };
 
 export default Register;
