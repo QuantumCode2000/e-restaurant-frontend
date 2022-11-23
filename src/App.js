@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MainLayout, SuperLayout } from "./layouts";
 import {
@@ -20,7 +20,6 @@ import {
 import Felicitaciones from "./pages/Felicitaciones";
 import ReservasComensal from "./components/ReservasComensal/ReservasComensal";
 import UserContext from "./context/UserContext";
-import { useEffect } from "react";
 
 function App() {
 	const { active } = useContext(UserContext);

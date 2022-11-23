@@ -8,13 +8,13 @@ import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 import firebaseApp from "../../config/credentials";
 import { getAuth, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const auth = getAuth(firebaseApp);
 
 const NavBar = () => {
 	let { active, user } = useContext(UserContext);
 	const rol = user?.rol;
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	return (
 		<header className="header-tag">
