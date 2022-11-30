@@ -11,12 +11,13 @@ import {
 	Prices,
 	Dashboard,
 	ProtectedRoute,
-	ListRestaurant,
+	// ListRestaurant
 	ListComensal,
 	SuperHome,
 	ListMensajes,
 	RegisterUser,
 } from "./routes";
+import ListReservas from "./routes/ListReservas/ListReservas";
 import Felicitaciones from "./pages/Felicitaciones";
 import ReservasComensal from "./components/ReservasComensal/ReservasComensal";
 import UserContext from "./context/UserContext";
@@ -48,7 +49,7 @@ function App() {
 						}
 					/>
 					<Route path="superadmin" element=<SuperLayout />>
-						<Route path="restaurantes" element=<ListRestaurant /> />
+						<Route path="reservasres" element=<ListReservas /> />
 						<Route path="comensales" element=<ListComensal /> />
 						<Route path="mensajes" element=<ListMensajes /> />
 					</Route>

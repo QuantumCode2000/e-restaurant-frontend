@@ -23,7 +23,7 @@ const NavBar = () => {
 					<figure className="figure-tag">
 						<img className="image-tag" src={logo} alt="Inicio" />
 					</figure>
-					<p className="foodie-logo">Foodie</p>
+					<p className="foodie-logo">Foodie Admin</p>
 				</Link>
 			</nav>
 			<nav className="header-nav-tag center-space">

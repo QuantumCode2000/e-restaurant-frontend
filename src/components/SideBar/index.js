@@ -9,16 +9,17 @@ const SideBar = () => {
 
 	return user?.rol === "administrador restaurante" ? (
 		<div className="sidebar-content">
-			<Link to="/superadmin/restaurantes" className="sidebar-option">
-				Restaurantes
+			<Link to="/superadmin/reservasres" className="sidebar-option">
+				Reservas
 			</Link>
 			<Link to="/superadmin/comensales" className="sidebar-option">
 				Comensales
 			</Link>
-			<Link to="/superadmin/mensajes" className="sidebar-option">
-				Mensajes
-			</Link>
 		</div>
+	) : user?.rol === "admin" ? (
+		<Link to="/superadmin/mensajes" className="sidebar-option">
+			Mensajes
+		</Link>
 	) : null;
 };
 

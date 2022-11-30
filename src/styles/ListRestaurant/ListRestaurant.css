@@ -1,58 +1,76 @@
 .card {
-  display: grid;
-  width: 20%;
-  grid-template-areas: "image" "text" "stats";
-  border-radius: 18px;
-  background: white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
-  font-family: roboto;
-  text-align: center;
-  margin: 20px;
+	display: grid;
+	width: 100%;
+	grid-template-areas: "image" "text" "stats";
+	border-radius: 18px;
+	background: white;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+	font-family: roboto;
+	text-align: center;
+	margin: 20px;
 }
 
 .card-text {
-  grid-area: text;
+	grid-area: text;
 }
 .card-stats {
-  grid-area: stats;
+	grid-area: stats;
 }
 .card-image {
-  grid-area: image;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+	grid-area: image;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-size: cover;
 }
 .card-text {
-  grid-area: text;
-  margin: 25px;
+	grid-area: text;
+	margin: 25px;
 }
 .card-text .date {
-  color: rgb(255, 7, 110);
-  font-size: 13px;
+	color: rgb(255, 7, 110);
+	font-size: 13px;
 }
 .card-text p {
-  color: grey;
-  font-size: 15px;
-  font-weight: 300;
+	color: grey;
+	font-size: 15px;
+	font-weight: 300;
 }
 .card-text h2 {
-  margin-top: 0px;
-  font-size: 28px;
+	margin-top: 0px;
+	font-size: 28px;
 }
 .card-stats {
-  grid-area: stats;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+	grid-area: stats;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: rgb(255, 7, 110);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background: rgb(255, 7, 110);
 }
 .card-stats .stat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: white;
-  padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+	padding: 10px;
+}
+
+.button-excel {
+	background-color: #4caf50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
 }
