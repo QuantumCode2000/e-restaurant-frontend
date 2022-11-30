@@ -3,8 +3,8 @@ import * as FileSaver from "file-saver";
 import XLSX from "sheetjs-style";
 // import UserContext from "../../context/UserContext";
 // import { useContext } from "react";
-import UserContext from "../../context/UserContext";
-import { useContext } from "react";
+// import UserContext from "../../context/UserContext";
+// import { useContext } from "react";
 import firebaseApp from "../../config/credentials";
 import "../../styles/ListRestaurant/ListRestaurant.css";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
@@ -12,7 +12,6 @@ import { useEffect } from "react";
 // import { Tooltip } from "bootstrap"
 
 const ListReservas = () => {
-	const { user } = useContext(UserContext);
 	const fileType =
 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
 	const fileExtension = ".xlsx";
